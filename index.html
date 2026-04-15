@@ -68,6 +68,191 @@
   <script defer src="static/js/bulma-slider.min.js"></script>
   <script defer src="static/js/index.js"></script>
 
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .section-tight {
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
+
+    .muted-subtitle {
+      max-width: 900px;
+      margin: 0 auto 1rem auto;
+      color: #4b5563;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .stat-card,
+    .feature-card,
+    .case-card,
+    .pipeline-card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .stat-card {
+      padding: 1.25rem 1rem;
+      text-align: center;
+    }
+
+    .stat-card .value {
+      display: block;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #111827;
+      line-height: 1.2;
+    }
+
+    .stat-card .label {
+      display: block;
+      margin-top: 0.45rem;
+      color: #4b5563;
+      font-size: 0.95rem;
+    }
+
+    .feature-card {
+      height: 100%;
+      padding: 1.35rem;
+    }
+
+    .feature-card .icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #eff6ff;
+      color: #2563eb;
+      margin-bottom: 0.8rem;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 0.55rem;
+      font-size: 1.08rem;
+      font-weight: 700;
+    }
+
+    .feature-card p,
+    .case-card p,
+    .pipeline-note,
+    .muted-note {
+      color: #4b5563;
+    }
+
+    .pipeline-card {
+      padding: 1.2rem;
+    }
+
+    .pipeline-card img,
+    .case-card img,
+    .overview-image {
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .case-card {
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .case-content {
+      padding: 1.15rem 1.2rem 1.25rem 1.2rem;
+    }
+
+    .case-tag {
+      display: inline-block;
+      margin-bottom: 0.7rem;
+      padding: 0.28rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      background: #eff6ff;
+      color: #1d4ed8;
+    }
+
+    .gt-pill {
+      display: inline-block;
+      margin: 0.2rem 0 0.9rem 0;
+      padding: 0.35rem 0.65rem;
+      border-radius: 10px;
+      background: #111827;
+      color: #ffffff;
+      font-size: 0.88rem;
+      word-break: break-word;
+    }
+
+    .prediction-list {
+      margin: 0.6rem 0 0.9rem 1.1rem;
+      color: #374151;
+    }
+
+    .prediction-list li {
+      margin-bottom: 0.32rem;
+    }
+
+    .mini-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.8rem 0 1rem 0;
+      font-size: 0.92rem;
+    }
+
+    .mini-table th,
+    .mini-table td {
+      border-bottom: 1px solid #e5e7eb;
+      padding: 0.65rem 0.45rem;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .mini-table th {
+      color: #111827;
+      font-weight: 700;
+    }
+
+    .hero .publication-links .button {
+      margin: 0.2rem 0.25rem;
+    }
+
+    .button.is-disabled {
+      opacity: 0.72;
+      pointer-events: none;
+    }
+
+    .section-caption {
+      max-width: 920px;
+      margin: 0.75rem auto 0;
+      text-align: center;
+      color: #4b5563;
+    }
+
+    @media screen and (max-width: 900px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media screen and (max-width: 640px) {
+      .stats-grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+    }
+  </style>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -118,12 +303,29 @@
               <div class="column has-text-centered">
                 <div class="publication-links">
                   <span class="link-block">
-                    <a href="https://huggingface.co/datasets/MMTR-Bench/MMTR_Bench_Dateset" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
+                    <a href="javascript:void(0)" class="external-link button is-normal is-rounded is-light is-disabled">
+                      <span class="icon">
+                        <i class="fas fa-file-alt"></i>
+                      </span>
+                      <span>Paper Coming Soon</span>
+                    </a>
+                  </span>
+
+                  <span class="link-block">
+                    <a href="https://huggingface.co/datasets/MMTR-Bench/MMTR-Bench-Dataset" target="_blank" class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
                         <i class="fas fa-database"></i>
                       </span>
-                      <span>Dataset & Leaderboard</span>
+                      <span>Dataset &amp; Leaderboard</span>
+                    </a>
+                  </span>
+
+                  <span class="link-block">
+                    <a href="https://github.com/MMTR-Bench-Dataset/MMTR-Bench-eval" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>GitHub / Eval Code</span>
                     </a>
                   </span>
                 </div>
@@ -135,7 +337,7 @@
       </div>
     </section>
 
-    <section class="section hero is-light">
+    <section class="section hero is-light section-tight">
       <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
@@ -153,19 +355,113 @@
       </div>
     </section>
 
+    <section class="section section-tight">
+      <div class="container is-max-desktop">
+        <div class="has-text-centered">
+          <h2 class="title is-3">Why MMTR-Bench</h2>
+          <p class="muted-subtitle">
+            MMTR-Bench moves beyond question-guided evaluation and directly measures whether multimodal models can reconstruct hidden text from visual context, layout structure, and semantic cues.
+          </p>
+        </div>
+
+        <div class="columns is-variable is-5">
+          <div class="column">
+            <div class="feature-card">
+              <div class="icon-wrap"><i class="fas fa-question-circle"></i></div>
+              <h3>No Explicit Questions</h3>
+              <p>Models are not told what to look for. They must identify relevant evidence and recover the hidden target without task-specific prompts.</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="feature-card">
+              <div class="icon-wrap"><i class="fas fa-eye"></i></div>
+              <h3>Beyond OCR Completion</h3>
+              <p>Success depends on layout understanding, visual grounding, chart or table interpretation, and the ability to exploit contextual structure rather than local text matching alone.</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="feature-card">
+              <div class="icon-wrap"><i class="fas fa-layer-group"></i></div>
+              <h3>Native Multimodal Reconstruction</h3>
+              <p>Some cases require cross-region, cross-page, or world-knowledge-supported recovery, making the task closer to real multimodal perception and reasoning.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hero is-light section-tight">
+      <div class="container is-max-desktop">
+        <div class="has-text-centered">
+          <h2 class="title is-3">Benchmark at a Glance</h2>
+          <p class="muted-subtitle">
+            MMTR-Bench covers diverse sources, multiple difficulty levels, and both local and cross-image reconstruction settings.
+          </p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="value">2,771</span>
+            <span class="label">test samples</span>
+          </div>
+          <div class="stat-card">
+            <span class="value">Single + Multi</span>
+            <span class="label">image settings</span>
+          </div>
+          <div class="stat-card">
+            <span class="value">22</span>
+            <span class="label">languages</span>
+          </div>
+          <div class="stat-card">
+            <span class="value">4 Levels</span>
+            <span class="label">difficulty-aware evaluation</span>
+          </div>
+          <div class="stat-card">
+            <span class="value">Docs / Web / Charts</span>
+            <span class="label">broad multimodal sources</span>
+          </div>
+          <div class="stat-card">
+            <span class="value">Factuality Gate</span>
+            <span class="label">LLM-based automated assessment</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container is-max-desktop">
+        <div class="has-text-centered">
+          <h2 class="title is-3">Benchmark Pipeline</h2>
+          <p class="muted-subtitle">
+            From sample construction to automated scoring, MMTR-Bench evaluates masked text reconstruction with a level-aware and factuality-aware pipeline.
+          </p>
+        </div>
+
+        <div class="pipeline-card">
+          <img src="static/images/maskar_pipeline.png" alt="MMTR-Bench pipeline" loading="lazy" />
+          <p class="section-caption">
+            The pipeline consists of four stages: <strong>(1) Data Preparation</strong>, where informative text spans are selected and masked; <strong>(2) Inference</strong>, where multimodal models predict the hidden text; <strong>(3) Metric Calculation</strong>, where lexical and semantic metrics are computed; and <strong>(4) Automated Assessment</strong>, where an LLM-based judge applies factuality-aware scoring.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <section class="hero is-small">
       <div class="hero-body">
         <div class="container is-max-desktop">
-          <h2 class="title is-3 has-text-centered">Dataset Overview & Results</h2>
+          <h2 class="title is-3 has-text-centered">Dataset Overview &amp; Results</h2>
+          <p class="muted-subtitle has-text-centered">
+            MMTR-Bench covers documents, charts, tables, webpages, and other real-world multimodal inputs, with reconstruction targets ranging from short entities to long-form text.
+          </p>
           <div class="item" style="margin-bottom: 2rem;">
-            <img src="static/images/overview.png" alt="MMTR-Bench Overview" style="width: 100%;" loading="lazy"/>
-            <h2 class="subtitle has-text-centered">
-              MMTR-Bench covers diverse sources including documents, charts, tables, and webpages, with varied reconstruction difficulty from short entities to paragraph-level targets.
+            <img class="overview-image" src="static/images/overview.png" alt="MMTR-Bench Overview" loading="lazy"/>
+            <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
+              MMTR-Bench covers diverse sources and varied reconstruction difficulty, spanning single-image and multi-image inputs with multiple answer lengths and mask ratios.
             </h2>
           </div>
           <div class="item">
-            <img src="static/images/model_bench.png" alt="MMTR-Bench Leaderboard" style="width: 100%;" loading="lazy"/>
-            <h2 class="subtitle has-text-centered">
+            <img class="overview-image" src="static/images/model_bench.png" alt="MMTR-Bench Leaderboard" loading="lazy"/>
+            <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
               Results on representative MLLMs show that reconstruction remains challenging across all levels, especially for longer and more context-dependent masked targets.
             </h2>
           </div>
@@ -216,6 +512,108 @@
             <div class="item" style="padding: 10px;"><img src="static/images/demo_bench_32.png" alt="Case 32" style="width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" loading="lazy"/></div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container is-max-desktop">
+        <div class="has-text-centered">
+          <h2 class="title is-3">Case Studies and Error Analysis</h2>
+          <p class="muted-subtitle">
+            The following examples highlight representative failure modes and a thinking-versus-non-thinking comparison under masked text reconstruction.
+          </p>
+        </div>
+
+        <div class="columns is-variable is-5">
+          <div class="column">
+            <div class="case-card">
+              <img src="static/images/bad_demo_5.png" alt="Failure case: visible-text copying in modular pipeline diagrams" loading="lazy" />
+              <div class="case-content">
+                <span class="case-tag">Low-scoring Case</span>
+                <h3 class="title is-5">Visible-text copying in modular pipeline diagrams</h3>
+                <p><strong>Ground truth</strong></p>
+                <div class="gt-pill">Length Normalization</div>
+
+                <p><strong>Representative wrong predictions</strong></p>
+                <ul class="prediction-list">
+                  <li>Instruction Fine-Tuning</li>
+                  <li>Low-Rank Adaptation (LoRA)</li>
+                  <li>Structured JSON Generation</li>
+                  <li>Completion-Only Training with Prompt Masking</li>
+                </ul>
+
+                <p>
+                  Although the figure is visually clean and highly structured, models systematically fail to recover the exact hidden module name. Most predictions either copy nearby visible phrases or generate semantically plausible training-related terms. This reveals a gap between understanding the overall topic of a pipeline and reconstructing the precise hidden component.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="case-card">
+              <img src="static/images/bad_demo_3.png" alt="Failure case: symbol anchoring in mathematical diagrams" loading="lazy" />
+              <div class="case-content">
+                <span class="case-tag">Low-scoring Case</span>
+                <h3 class="title is-5">Symbol anchoring in mathematical diagrams</h3>
+                <p><strong>Ground truth</strong></p>
+                <div class="gt-pill">x<sup>T</sup>a</div>
+
+                <p><strong>Representative wrong predictions</strong></p>
+                <ul class="prediction-list">
+                  <li>p</li>
+                  <li>Projection of x along the direction a</li>
+                  <li>p = a(a<sup>T</sup>x), ‖a‖ = a<sup>T</sup>a = 1</li>
+                </ul>
+
+                <p>
+                  Most models collapse to the nearby visible symbol <strong>p</strong> or copy a larger visible equation instead of reconstructing the hidden inner-product term. This example shows that topic-level understanding of a mathematical slide is not enough for exact formula-level recovery.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns is-centered" style="margin-top: 0.75rem;">
+          <div class="column is-two-thirds-desktop is-full-tablet">
+            <div class="case-card">
+              <img src="static/images/think_demo_1.png" alt="Thinking versus non-thinking case" loading="lazy" />
+              <div class="case-content">
+                <span class="case-tag">Thinking vs. Non-thinking</span>
+                <h3 class="title is-5">Reasoning helps when the target is structurally constrained</h3>
+                <p><strong>Ground truth</strong></p>
+                <div class="gt-pill">STRIKE</div>
+
+                <table class="mini-table">
+                  <thead>
+                    <tr>
+                      <th>Model family</th>
+                      <th>Non-thinking</th>
+                      <th>Thinking</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Qwen3.5-122B-A10B</td>
+                      <td>0</td>
+                      <td>STRIKE</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <p>
+                  In this case, the masked target is part of a scoreboard where the surrounding structure strongly suggests the template <strong>BALL–STRIKE–OUT</strong>. The non-thinking variant anchors on a nearby count value, while the thinking variant successfully recovers the hidden label by exploiting the local structural schema.
+                </p>
+                <p class="muted-note">
+                  <strong>Abbreviated reasoning trace:</strong> identify the masked region as part of the scoreboard count panel, infer the conventional label order, and reconstruct the hidden text as <strong>STRIKE</strong>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Optional future extension:
+        Add one or two high-scoring examples here when you finish selecting the corresponding figures.
+        -->
       </div>
     </section>
 
